@@ -1,0 +1,15 @@
+
+RewriteEngine on
+RewriteBase /~geir/mvc-ny/
+#RewriteCond %{REQUEST_FILENAME}.php -f
+
+RewriteRule    ^(\w+)/(\w+)/(\w+)/(\w+)/?$ index.php?p1=$1&p2=$2&a=$3&id=$4&id2=$5 [QSA,NC,L]
+RewriteRule    ^(\w+)/(\w+)/(\w+)/?$ index.php?p1=$1&p2=$2&a=$3&id=$4 [QSA,NC,L]
+RewriteRule    ^(\w+)/(\w+)/?$ index.php?p1=$1&p2=$2&a=$3 [QSA,NC,L]
+RewriteRule    ^(\w+)/?$ index.php?p1=$1&p2=$2 [QSA,NC,L]
+RewriteRule !.(gif|jpg|png|css|js|html)$ index.php [QSA,NC,L]
+#RewriteRule .* index.php
+
+
+#ErrorDocument 404  "<H1>Page not found</H1>"
+#ErrorDocument 500  "<H1>Error in app</H1>"
