@@ -1,7 +1,7 @@
 <?php
 namespace Router\Triad;
 
-class TriadName implements \Router\Contracts\ITriadName
+class TriadName implements \Router\Interfaces\ITriadName
 {
     private $controllerName;
     private $viewName;
@@ -18,14 +18,14 @@ class TriadName implements \Router\Contracts\ITriadName
         $this->viewModelName = $basePath . "\\ViewModel";
     }
     
-    public function applyConfiguration(\Router\Contracts\ITriadConfiguration $config)
+    public function applyConfiguration(\Router\Interfaces\ITriadConfiguration $config)
     {
         $rules = $this->getRules($config);
         if(isset($rules[$this->pattern]))
             $this->applyRules($rules[$this->pattern]);
     }
     
-    private function getRules(\Router\Contracts\ITriadConfiguration $config)
+    private function getRules(\Router\Interfaces\ITriadConfiguration $config)
     {
         $rules = $config->getConfigArray();
         if(!is_array($rules))

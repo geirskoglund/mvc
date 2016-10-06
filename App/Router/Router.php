@@ -1,7 +1,7 @@
 <?php
 namespace Router;
 
-class Router implements \Router\Contracts\IRouter
+class Router implements \Router\Interfaces\IRouter
 {
     private $dice;
 
@@ -11,7 +11,7 @@ class Router implements \Router\Contracts\IRouter
     }
     
     
-    public function instantiate(\Router\Contracts\ITriadName $names) 
+    public function instantiate(\Router\Interfaces\ITriadName $names) 
     {
         //TODO: Consider skipping Dice for this. Is easily handled through simple initiation.
         //Convert $names into a Route object as defined below

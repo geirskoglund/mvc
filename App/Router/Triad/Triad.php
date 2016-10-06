@@ -1,7 +1,7 @@
 <?php 
 namespace Router\Triad;
 
-class Triad implements \Router\Contracts\ITriad
+class Triad implements \Router\Interfaces\ITriad
 {
     private $view;
     private $controller;

@@ -1,7 +1,7 @@
 <?php 
 namespace Router\Triad;
 
-class ErrorTriad implements \Router\Contracts\ITriad
+class ErrorTriad implements \Router\Interfaces\ITriad
 {
     private $view;
 

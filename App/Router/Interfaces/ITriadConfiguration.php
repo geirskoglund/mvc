@@ -1,6 +1,6 @@
 <?php 
 
-namespace Router\Contracts;
+namespace Router\Interfaces;
 
 interface ITriadConfiguration
 {
