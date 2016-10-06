@@ -4,14 +4,13 @@ define('PRODUCTION_VERSION', false);
 
 require_once 'AppAutoloader.php';
 
-$router = new \Router\Router();
-$request = new AppRequest;
-$triadNames = new \Router\Triad\TriadName();
-$config = new \Router\Triad\TriadConfiguration();
-$triad = null;
-
 try
 {
+    $router = new \Router\Router();
+    $request = new AppRequest;
+    $triadNames = new \Router\Triad\TriadName();
+    $config = new \Router\Triad\TriadConfiguration();
+
     $triadNames->initiateFrom($request);
     $triadNames->applyConfiguration($config);
     $triad = $router->instantiate($triadNames);
@@ -27,6 +26,5 @@ catch(Exception $e)
     
     $error = new \Router\Triad\ErrorTriad($code); 
     $error->getView()->render();
-    die;
 }
 
