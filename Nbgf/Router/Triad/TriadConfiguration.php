@@ -7,7 +7,8 @@ class TriadConfiguration implements \Router\Contracts\ITriadConfiguration
     function getConfigArray()
     {
         return [
-            "/" => ["Home\\Index", "Home\\Index", "Home\\Index"]
+            "/" => ["Home\\Index", "Home\\Index", "Home\\Index"],
+            "Forum/Thread" => ["Home\\Index", "Home\\Index", "Home\\Index"]
          
         ];
     }
