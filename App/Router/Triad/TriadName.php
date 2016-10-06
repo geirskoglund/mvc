@@ -8,7 +8,7 @@ class TriadName implements \Router\Contracts\ITriadName
     private $viewModelName;
     private $pattern;
     
-    public function initiateFrom(\NbgfRequest $request)
+    public function initiateFrom(\AppRequest $request)
     {
         $this->pattern = $request->getShortPathFirst() . '/' . $request->getShortPathSecond();
         

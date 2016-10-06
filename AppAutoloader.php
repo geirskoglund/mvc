@@ -1,13 +1,13 @@
 <?php
 
-spl_autoload_register('NbgfAutoloader::loader');
+spl_autoload_register('AppAutoloader::loader');
 
-class NbgfAutoloader
+class AppAutoloader
 {
     
     public static function loader($className)
     {
-        $fileName = 'Nbgf/' . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
+        $fileName = 'App/' . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
         
         
         if (!file_exists($fileName))
@@ -28,7 +28,7 @@ class NbgfAutoloader
     private static function getRealFilePath($candidate)
     {
         $candidate = strtolower($candidate);
-        $it = new RecursiveDirectoryIterator("Nbgf");
+        $it = new RecursiveDirectoryIterator("App");
         foreach(new RecursiveIteratorIterator($it) as $file) 
         {
             $name = $file->getPath().DIRECTORY_SEPARATOR.$file->getFileName();

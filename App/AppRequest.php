@@ -1,5 +1,5 @@
 <?php
-class NbgfRequest
+class AppRequest
 {
 	public function method()
 	{

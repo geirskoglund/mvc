@@ -2,12 +2,12 @@
 
 define('PRODUCTION_VERSION', false);
 
-require_once 'NbgfAutoloader.php';
+require_once 'AppAutoloader.php';
 
 
 $dice = new \Dice\Dice;
 $router = new \Router\Router($dice);
-$request = new NbgfRequest;
+$request = new AppRequest;
 $triadNames = new \Router\Triad\TriadName();
 $config = new \Router\Triad\TriadConfiguration();
 $triad = null;

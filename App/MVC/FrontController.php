@@ -10,7 +10,7 @@ class FrontController
         $this->triad = $triad;
     }
     
-    public function performActionBasedOn(\NbgfRequest $request)
+    public function performActionBasedOn(\AppRequest $request)
     {
         if($this->triad->getController()==null || $request->getAction()==null)
             return false;
