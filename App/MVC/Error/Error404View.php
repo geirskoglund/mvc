@@ -1,7 +1,7 @@
 <?php
 namespace MVC\Error;
 
-class Error404View implements \MVC\IView
+class Error404View implements \MVC\Interfaces\IView
 {
     
     public function render()

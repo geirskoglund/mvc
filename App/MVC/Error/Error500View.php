@@ -1,7 +1,7 @@
 <?php
 namespace MVC\Error;
 
-class Error500View implements \MVC\IView
+class Error500View implements \MVC\Interfaces\IView
 {
     
     public function render()

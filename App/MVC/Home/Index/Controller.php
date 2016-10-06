@@ -12,7 +12,6 @@ class Controller implements \MVC\Interfaces\IFilterable
     
     public function filter($id)
     {
-        echo "<p>Controlleren filterer på " . $id."</p>";
         $this->viewModel->filter($id);
     }
     

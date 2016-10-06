@@ -12,7 +12,7 @@ class View implements \MVC\Interfaces\IView
     
     public function render()
     {
-        echo "<p>Viewet printer ut:".$this->viewModel->getViewData()."</p>";
+        echo "<h4>Viewet sier</h4><p>".$this->viewModel->getViewData()."</p>";
     }
 
 }

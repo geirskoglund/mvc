@@ -3,12 +3,16 @@ namespace MVC\Home\Index;
 
 class ViewModel implements \MVC\Interfaces\IFilterable, \MVC\Interfaces\IViewModel 
 {
-    private $someData = "Dette er ufiltrerte data";
+    private $someData;
+    
+    public function __construct() 
+    {
+        $this->someData = "Dette er ufiltrerte data";
+    }
     
     public function filter($id)
     {
-        echo "<p>ViewModel mottar id = '" . $id."' og kaller DomainModels for å hente filtrerte data.</p>";
-        $this->someData = "Disse datene er filrert på id ".$id;
+        $this->someData = "Disse datene er filtrert på id ".$id;
     }
     
     public function getViewData()

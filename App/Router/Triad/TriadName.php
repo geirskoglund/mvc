@@ -11,8 +11,8 @@ class TriadName implements \Router\Interfaces\ITriadName
     public function initiateFrom(\AppRequest $request)
     {
         $this->pattern = $request->getShortPathFirst() . '/' . $request->getShortPathSecond();
-        
         $basePath = '\\MVC\\' . $request->getShortPathFirst() . '\\' . $request->getShortPathSecond();
+        
         $this->viewName = $basePath . "\\View";
         $this->controllerName = $basePath . "\\Controller";
         $this->viewModelName = $basePath . "\\ViewModel";

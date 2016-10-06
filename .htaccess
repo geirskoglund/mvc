@@ -7,6 +7,7 @@ RewriteRule    ^(\w+)/(\w+)/(\w+)/(\w+)/(\w+)/?$ index.php?p1=$1&p2=$2&a=$3&id=$
 RewriteRule    ^(\w+)/(\w+)/(\w+)/(\w+)/?$ index.php?p1=$1&p2=$2&a=$3&id=$4 [QSA,NC,L]
 RewriteRule    ^(\w+)/(\w+)/(\w+)/?$ index.php?p1=$1&p2=$2&a=$3 [QSA,NC,L]
 RewriteRule    ^(\w+)/(\w+)/?$ index.php?p1=$1&p2=$2 [QSA,NC,L]
+RewriteRule    ^(\w+)/?$ index.php?p1=$1 [QSA,NC,L]
 RewriteRule !.(gif|jpg|png|css|js|html)$ index.php [QSA,NC,L]
 #RewriteRule .* index.php
 

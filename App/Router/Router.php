@@ -3,50 +3,30 @@ namespace Router;
 
 class Router implements \Router\Interfaces\IRouter
 {
-    private $dice;
-
-    public function __construct(\Dice\Dice $dice) 
-    {
-        $this->dice = $dice;
-    }
-    
     
     public function instantiate(\Router\Interfaces\ITriadName $names) 
     {
-        //TODO: Consider skipping Dice for this. Is easily handled through simple initiation.
-        //Convert $names into a Route object as defined below
+        //The view must exist
         $viewName = $names->getViewName();
-
         if (!isset($viewName) || !class_exists($viewName)) 
             throw new \DomainException("View does not exist");
-
-        $triad = "\\Router\\Triad\\Triad";
-
-        $controllerName = $names->getControllerName();
+        
+        //Create a model instance if one is specified
         $modelName = $names->getViewModelName();
+        $model = null;
+        if(isset($modelName) && class_exists($modelName))
+            $model = new $modelName();
         
-        $rule = 
-        [
-            "constructParams" => 
-            [
-                $this->dice->create($viewName),
-                ($controllerName != null && class_exists($controllerName)) ? $this->dice->create($controllerName) : null,
-            ]            
-        ];
-        $this->dice->addRule($triad, $rule);
+        //Create a controller instance if one is specified. Inject the model instance if it exists.
+        $controllerName = $names->getControllerName();
+        $controller = null;
+        if(isset($controllerName) && class_exists($controllerName))
+            $controller = isset($model) ? new $controllerName($model) : new $controllerName();
         
-        //The model doesn't need to exist, in its purest form, an MVC triad could just be a view
-        //This tells Dice that the same instance of the model should be passed to both the view and the controller, if it exists
-        if ($modelName != null && class_exists($modelName))  
-        {
-            $modelRule = ["shareInstances" => [$modelName]]; 
-            $this->dice->addRule($triad, $modelRule);
-        }
-        // }
-
-        //Have Dice construct the Route object with the correct controller and view set.
-        //Dice will automatically pass the model into the View nad Controller if they ask for it in their constructors
-        return $this->dice->create($triad);
+        //Create a view instance. Inject the model instance if it exists.
+        $view = isset($model) ? new $viewName($model) : new $viewName();
+        
+        return new \Router\Triad\Triad($view, $controller);       
 
     }
     

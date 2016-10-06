@@ -20,7 +20,7 @@ class FrontController
         
         //if action does not exist, don't call it
         if(!method_exists($controller, $action))
-            return false;
+            throw new \BadMethodCallException("The action '".$action."' does not exist.");
         
         // This will create an object that is the definition of our object
         $f = new \ReflectionMethod($controller, $action);
@@ -28,10 +28,10 @@ class FrontController
         // Loop trough params
         foreach ($f->getParameters() as $param) 
         {
-            // Check if parameters is sent through POST and if it is optional or not
+            // Check if parameters is sent through the request and if it is optional or not
             if (!$request->requestIsSet($param->name) && !$param->isOptional()) 
             {     
-                throw new \Exception("You did not provide a value for all parameters");
+                throw new \BadMethodCallException("Required argument ".$param->name." is missing");
             }
             if ($request->requestIsSet($param->name)) 
             {
