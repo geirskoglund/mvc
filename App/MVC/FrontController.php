@@ -5,7 +5,7 @@ class FrontController
 {
     private $triad;
     
-    public function __construct(\Router\Contracts\ITriad $triad)
+    public function __construct(\Router\Interfaces\ITriad $triad)
     {
         $this->triad = $triad;
     }
