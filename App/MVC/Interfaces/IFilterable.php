@@ -1,5 +1,5 @@
 <?php
-namespace MVC;
+namespace MVC\Interfaces;
 
 interface IFilterable
 {

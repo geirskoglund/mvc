@@ -1,7 +1,7 @@
 <?php
 namespace MVC\Home\Index;
 
-class Controller implements \MVC\IFilterable
+class Controller implements \MVC\Interfaces\IFilterable
 {
     private $viewModel;
     
@@ -13,6 +13,7 @@ class Controller implements \MVC\IFilterable
     public function filter($id)
     {
         echo "<p>Controlleren filterer på " . $id."</p>";
+        $this->viewModel->filter($id);
     }
     
 }

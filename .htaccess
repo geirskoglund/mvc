@@ -1,6 +1,6 @@
 
 RewriteEngine on
-RewriteBase /~geir/mvc-ny/
+RewriteBase /~geir/git-repo/mvc/
 #RewriteCond %{REQUEST_FILENAME}.php -f
 
 RewriteRule    ^(\w+)/(\w+)/(\w+)/(\w+)/(\w+)/?$ index.php?p1=$1&p2=$2&a=$3&id=$4&id2=$5 [QSA,NC,L]

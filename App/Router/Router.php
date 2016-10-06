@@ -17,8 +17,8 @@ class Router implements \Router\Interfaces\IRouter
         //Convert $names into a Route object as defined below
         $viewName = $names->getViewName();
 
-        if (!class_exists($viewName)) 
-            throw new \Exception("View does not exist");
+        if (!isset($viewName) || !class_exists($viewName)) 
+            throw new \DomainException("View does not exist");
 
         $triad = "\\Router\\Triad\\Triad";
 
