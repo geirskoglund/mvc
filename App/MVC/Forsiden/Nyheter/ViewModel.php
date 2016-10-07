@@ -1,5 +1,5 @@
 <?php
-namespace MVC\Home\Index;
+namespace MVC\Forsiden\Nyheter;
 
 class ViewModel implements \MVC\Interfaces\IFilterable, \MVC\Interfaces\IViewModel 
 {
@@ -7,12 +7,12 @@ class ViewModel implements \MVC\Interfaces\IFilterable, \MVC\Interfaces\IViewMod
     
     public function __construct() 
     {
-        $this->someData = "Dette er ufiltrerte data fra Home/Index-pathen";
+        $this->someData = "Dette er ufiltrerte data";
     }
     
     public function filter($id)
     {
-        $this->someData = "Disse datene er filtrert på id ".$id. ", fra Home/Index-pathen";
+        $this->someData = "Disse datene er filtrert på id ".$id;
     }
     
     public function getViewData()

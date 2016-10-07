@@ -13,6 +13,8 @@ class View implements \MVC\Interfaces\IView
     public function render()
     {
         echo "<h4>Viewet sier</h4><p>".$this->viewModel->getViewData()."</p>";
+        echo "<p>Merk at dette viet er fra Home/Index-pathen:</p>";
+        var_dump($this);
     }
 
 }
