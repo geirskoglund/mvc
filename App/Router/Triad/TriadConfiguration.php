@@ -8,7 +8,7 @@ class TriadConfiguration implements \Router\Interfaces\ITriadConfiguration
     {
         return [
             "/" => ["Forsiden\\Nyheter", "Home\\Index", "Forsiden\\Nyheter"],
-            "Forsiden/Nyheter" => ["Forsiden\\Nyheter", "Home\\Index", "Forsiden\\Nyheter"],
+            "Forsiden/Nyheter" => ["Home\\Index", "Home\\Index", "Forsiden\\Nyheter"],
             "Forum/Thread" => ["Home\\Index", "Home\\Index", "Home\\Index"]
          
         ];

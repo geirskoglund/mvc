@@ -5,7 +5,7 @@ class View implements \MVC\Interfaces\IView
 {
     private $viewModel;
     
-    public function __construct(\MVC\Home\Index\ViewModel $model) 
+    public function __construct(\MVC\Interfaces\IViewModel $model) 
     {
         $this->viewModel = $model;
     }
